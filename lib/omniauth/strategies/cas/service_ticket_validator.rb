@@ -24,6 +24,7 @@ module OmniAuth
         # Executes a network request to process the CAS Service Response
         def call
           @response_body = get_service_response_body
+          OmniAuth.logger.info @response_body
           @success_body = find_authentication_success(@response_body)
           self
         end
